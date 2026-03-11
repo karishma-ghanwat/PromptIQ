@@ -1,0 +1,121 @@
+.chatwindow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #212121;
+    color: white;
+}
+
+/*Navbar*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.navbar span {
+    margin: 1rem 2rem;
+}
+
+.userIconDiv {
+    margin: 1rem 2rem;
+}
+
+.userIcon {
+    background-color: #339cff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+/*Chat Input*/
+.chatInputDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.inputbox {
+    width: 100%;
+    position: relative;
+    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    font-size: 0.8rem;
+    border-radius: 14px;
+
+}
+
+#submit {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#submit i:hover {
+    color: #fff;
+}
+
+input:focus {
+    outline: none;
+}
+
+.info {
+    font-size: 0.8rem;
+    color: #b4b4b4;
+    padding: 0.5rem;
+}
+
+/*dropdown css*/
+.dropdown {
+    position: absolute;
+    top: 4rem;
+    right: 4rem;
+    width: 150px;
+    background-color: #323232;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    text-align: left;
+    z-index: 1000;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.dropdownItem {
+    font-size: 0.9rem;
+    margin: 0.3rem 0rem;
+    padding: 0.5rem 0.2rem;
+    cursor: pointer;
+}
+
+.dropdown:hover {
+    background-color: rgba(180, 180, 180, 0.1);
+    border-radius: 6px;
+}
