@@ -29,6 +29,10 @@
 // }
 
 // export default getOpenaiResponse;
+
+
+
+
 import 'dotenv/config';
 
 const getOpenaiResponse = async (message) => {
@@ -71,3 +75,4 @@ const getOpenaiResponse = async (message) => {
 };
 
 export default getOpenaiResponse;
+
