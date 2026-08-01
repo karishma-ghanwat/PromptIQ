@@ -1,78 +1,108 @@
-import express from 'express';
-import 'dotenv/config';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import chatRoutes from './routes/Chat.js';
+// import express from 'express';
+// import 'dotenv/config';
+// import cors from 'cors';
+// import mongoose from 'mongoose';
+// import chatRoutes from './routes/Chat.js';
+
+// const app = express();
+// const PORT = 8080;
+
+// app.use(express.json());
+// app.use(cors());
+// app.use('/api', chatRoutes);
+
+// //connect to mongodb
+// const connectDB = async () => {
+//     try {
+//         await mongoose.connect(process.env.MONGODB_URI);
+//         console.log("MongoDB connected");
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
+
+
+
+// app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+//     connectDB();
+
+// });
+
+// connectDB();
+
+
+
+// // //own API end point
+// // app.post("/test", async (req, res) => {
+// //     const options = {
+// //         method: "POST",
+// //         headers: {
+// //             "Content-Type": "application/json",
+// //             "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
+// //         },
+// //         body: JSON.stringify({
+// //             model: "gpt-4o-mini",
+// //             messages: [
+// //                 {
+// //                     role: "user",
+// //                     content: req.body.message
+// //                 }
+// //             ]
+// //         })
+// //     };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //     try {
+// //         const response = await fetch("https://api.openai.com/v1/chat/completions", options);
+// //         const data = await response.json();
+// //         // console.log(data.choices[0].message.content);//reply from openai
+// //         res.json(data.choices[0].message.content);
+// //     } catch (err) {
+// //         console.log(err);
+// //     }
+// // })
+
+import express from "express";
+import "dotenv/config";
+import cors from "cors";
+import mongoose from "mongoose";
+import chatRoutes from "./routes/Chat.js";
 
 const app = express();
 const PORT = 8080;
 
 app.use(express.json());
 app.use(cors());
-app.use('/api', chatRoutes);
+app.use("/api", chatRoutes);
 
-//connect to mongodb
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
-        console.log("MongoDB connected");
+        console.log("✅ MongoDB Connected");
     } catch (err) {
-        console.log(err);
+        console.error("❌ MongoDB Connection Error:");
+        console.error(err);
+        process.exit(1);
     }
-}
+};
 
-
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-    connectDB();
-
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running on port ${PORT}`);
+    });
 });
-
-connectDB();
-
-
-
-// //own API end point
-// app.post("/test", async (req, res) => {
-//     const options = {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//             "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
-//         },
-//         body: JSON.stringify({
-//             model: "gpt-4o-mini",
-//             messages: [
-//                 {
-//                     role: "user",
-//                     content: req.body.message
-//                 }
-//             ]
-//         })
-//     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//     try {
-//         const response = await fetch("https://api.openai.com/v1/chat/completions", options);
-//         const data = await response.json();
-//         // console.log(data.choices[0].message.content);//reply from openai
-//         res.json(data.choices[0].message.content);
-//     } catch (err) {
-//         console.log(err);
-//     }
-// })
